@@ -13,7 +13,7 @@ public class RunnableCancellablePrimeFactorizer extends RunnablePrimeFactorizer 
 	public void setDone() {
 		lock.lock();
 		try {
-			done = false;
+			done = true;
 		} finally {
 			lock.unlock();
 		}
@@ -58,7 +58,7 @@ public class RunnableCancellablePrimeFactorizer extends RunnablePrimeFactorizer 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Prime factors are:"  + runnableCancellable.getPrimeFactors() + "\n");
+		System.out.println("Prime factors are:"  + runnableCancellable.getPrimeFactors());
 	}
 
 }
