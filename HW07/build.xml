@@ -23,7 +23,7 @@
 	
 	<target depends="clean" name="cleanall" />
 	<target
-		depends="clean, build-project, RunnableConcurrentSingleton"
+		depends="clean, build-project, ConcurrentSingleton"
 		name="build" />
 	<target depends="init" name="build-project">
 		<echo message="${ant.project.name}: ${ant.file}" />
@@ -40,8 +40,8 @@
 		<!-- </javac> -->
 	</target>
 
-	<target name="RunnableConcurrentSingleton">
-		<java classname="edu.umb.cs681.hw07.RunnableConcurrentSingleton" classpath="bin"
+	<target name="ConcurrentSingleton">
+		<java classname="edu.umb.cs681.hw07.ConcurrentSingleton" classpath="bin"
 			failonerror="true" fork="yes" />
 	</target>
 
