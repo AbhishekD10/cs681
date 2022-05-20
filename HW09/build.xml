@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build" name="HW4">
+<project basedir="." default="build" name="HW09">
 	<property environment="env" />
 	<property name="junit.output.dir" value="junit" />
 	<property name="debuglevel" value="source,lines,vars" />
@@ -23,7 +23,7 @@
 	
 	<target depends="clean" name="cleanall" />
 	<target
-		depends="clean, build-project, RunnablePrimeGenerator"
+		depends="clean, build-project, ConcurrentSingleton"
 		name="build" />
 	<target depends="init" name="build-project">
 		<echo message="${ant.project.name}: ${ant.file}" />
@@ -40,7 +40,7 @@
 		<!-- </javac> -->
 	</target>
 
-	<target name="RunnablePrimeGenerator">
+	<target name="ConcurrentSingleton">
 		<java classname="edu.umb.cs681.hw09.ConcurrentSingleton" classpath="bin"
 			failonerror="true" fork="yes" />
 	</target>
