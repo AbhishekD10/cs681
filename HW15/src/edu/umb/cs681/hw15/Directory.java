@@ -34,12 +34,12 @@ public class Directory extends FSElement {
     public LinkedList<Directory> getSubDirectories() {
         lock.lock();
         try {
-            LinkedList<Directory> directories = new LinkedList<Directory>();
+            LinkedList<Directory> list_directories = new LinkedList<Directory>();
             for (FSElement f : getChildren()) {
                 if (f instanceof Directory)
-                    directories.add((Directory) f);
+                	list_directories.add((Directory) f);
             }
-            return directories;
+            return list_directories;
         } finally {
             lock.unlock();
         }
@@ -48,12 +48,12 @@ public class Directory extends FSElement {
     public LinkedList<File> getFiles() {
         lock.lock();
         try {
-            LinkedList<File> files = new LinkedList<File>();
+            LinkedList<File> list_files = new LinkedList<File>();
             for (FSElement f : getChildren()) {
                 if (f instanceof File)
-                    files.add((File) f);
+                	list_files.add((File) f);
             }
-            return files;
+            return list_files;
         } finally {
             lock.unlock();
         }
@@ -63,14 +63,14 @@ public class Directory extends FSElement {
     public int getTotalSize() {
         lock.lock();
         try {
-            int sizetotal = 0;
+            int size_total = 0;
             for(FSElement f : getChildren()) {
                 if(f instanceof Directory)
-                    sizetotal += ((Directory) f).getTotalSize();
+                	size_total += ((Directory) f).getTotalSize();
                 else
-                    sizetotal += f.getSize();
+                	size_total += f.getSize();
             }
-            return sizetotal;
+            return size_total;
         }finally {
             lock.unlock();
         }
